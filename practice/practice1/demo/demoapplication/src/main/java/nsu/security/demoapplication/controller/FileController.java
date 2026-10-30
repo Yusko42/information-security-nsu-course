@@ -73,9 +73,9 @@ public class FileController {
     public ResponseEntity<String> uploadFromUrl(@RequestParam String request) throws IOException {
         URI uri = URI.create(request);
 
-        if (!isAllowedAddress(uri)) {
-            return ResponseEntity.badRequest().body("Недопустимый адрес");
-        }  
+        // if (!isAllowedAddress(uri)) {
+        //     return ResponseEntity.badRequest().body("Недопустимый адрес");
+        // }  
 
         Path uploadPath = Paths.get(UPLOAD_DIR);
         Files.createDirectories(uploadPath);
@@ -126,14 +126,14 @@ public class FileController {
         return ALLOWED_TYPES.contains(detectedType);
     }
 
-    private boolean isAllowedAddress(URI uri) throws IOException {
-        String host = uri.getHost();
-        if (host == null) { return false; }
-        InetAddress address = InetAddress.getByName(host);
+    // private boolean isAllowedAddress(URI uri) throws IOException {
+    //     String host = uri.getHost();
+    //     if (host == null) { return false; }
+    //     InetAddress address = InetAddress.getByName(host);
 
-        return !address.isLoopbackAddress()
-            && !address.isAnyLocalAddress()
-            && !address.isLinkLocalAddress()
-            && !address.isSiteLocalAddress();
-    }
+    //     return !address.isLoopbackAddress()
+    //         && !address.isAnyLocalAddress()
+    //         && !address.isLinkLocalAddress()
+    //         && !address.isSiteLocalAddress();
+    // }
 }

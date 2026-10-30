@@ -1,0 +1,89 @@
+{
+    "version": "1.181.1",
+    "results": [],
+    "errors": [],
+    "paths": {
+        "scanned": [
+            "/work/src/main/java/nsu/security/demoapplication/DemoapplicationApplication.java",
+            "/work/src/main/java/nsu/security/demoapplication/controller/FileController.java",
+            "/work/src/main/java/nsu/security/demoapplication/controller/HealthController.java",
+            "/work/src/main/java/nsu/security/demoapplication/controller/OrderController.java",
+            "/work/src/main/java/nsu/security/demoapplication/model/Order.java",
+            "/work/src/main/java/nsu/security/demoapplication/repository/OrderJdbcRepository.java",
+            "/work/src/main/java/nsu/security/demoapplication/repository/OrderRepository.java"
+        ]
+    },
+    "time": {
+        "rules": [],
+        "rules_parse_time": 0.04451107978820801,
+        "profiling_times": {
+            "config_time": 0.21488261222839355,
+            "core_time": 0.8255875110626221,
+            "ignores_time": 7.033348083496094e-05,
+            "total_time": 1.0540573596954346
+        },
+        "parsing_time": {
+            "total_time": 0.038520097732543945,
+            "per_file_time": {
+                "mean": 0.038520097732543945,
+                "std_dev": 0.0
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_files": []
+        },
+        "scanning_time": {
+            "total_time": 0.11986637115478516,
+            "per_file_time": {
+                "mean": 0.017123767307826453,
+                "std_dev": 0.0004915131984865425
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_files": []
+        },
+        "matching_time": {
+            "total_time": 0.02084183692932129,
+            "per_file_and_rule_time": {
+                "mean": 0.02084183692932129,
+                "std_dev": 0.0
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_rules_on_files": []
+        },
+        "tainting_time": {
+            "total_time": 0.0021376609802246094,
+            "per_def_and_rule_time": {
+                "mean": 0.00030538014003208706,
+                "std_dev": 1.0262441700971827e-07
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_rules_on_defs": []
+        },
+        "fixpoint_timeouts": [],
+        "prefiltering": {
+            "project_level_time": 0.0,
+            "file_level_time": 0.0,
+            "rules_with_project_prefilters_ratio": 0.0,
+            "rules_with_file_prefilters_ratio": 1.0,
+            "rules_selected_ratio": 0.14285714285714285,
+            "rules_matched_ratio": 0.14285714285714285
+        },
+        "targets": [],
+        "total_bytes": 0,
+        "max_memory_bytes": 116738048
+    },
+    "engine_requested": "OSS",
+    "skipped_rules": [],
+    "profiling_results": []
+}

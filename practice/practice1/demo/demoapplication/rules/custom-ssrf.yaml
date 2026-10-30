@@ -1,0 +1,39 @@
+rules:
+- id: spring-ssrf-uri
+  languages: [java]
+  severity: ERROR
+  message: >-
+    User input is used as a URL for an outbound request
+    without validating the address (SSRF). 
+    Validate the URI using isAllowedAddress(...)
+    before opening the connection.
+  metadata:
+    cwe: ['CWE-918: Server-Side Request Forgery (SSRF)']
+    category: security
+  mode: taint
+  pattern-sources:
+  - patterns:
+    - pattern-either:
+      - pattern-inside: |
+          $M(..., @$REQ(...) $T $SRC, ...) { ... }
+      - pattern-inside: |
+          $M(..., @$REQ $T $SRC, ...) { ... }
+    - metavariable-regex:
+        metavariable: $REQ
+        regex: ^(RequestBody|PathVariable|RequestParam|RequestHeader|CookieValue|ModelAttribute)$
+    - focus-metavariable: $SRC
+  pattern-sanitizers:
+  - by-side-effect: true
+    patterns:
+    - pattern: isAllowedAddress($X)
+    - focus-metavariable: $X
+  pattern-sinks:
+  - patterns:
+    - pattern: $U.toURL()
+    - focus-metavariable: $U
+  - patterns:
+    - pattern-either:
+      - pattern: $U.openStream()
+      - pattern: $U.openConnection(...)
+    - focus-metavariable: $U
+  - pattern: new java.net.URL(...)

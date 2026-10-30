@@ -1,0 +1,118 @@
+{
+    "version": "1.181.1",
+    "results": [
+        {
+            "check_id": "rules.spring-ssrf-uri",
+            "path": "/work/src/main/java/nsu/security/demoapplication/controller/FileController.java",
+            "start": {
+                "line": 85,
+                "col": 34,
+                "offset": 3341
+            },
+            "end": {
+                "line": 85,
+                "col": 45,
+                "offset": 3352
+            },
+            "extra": {
+                "message": "Пользовательский ввод используется как URL для исходящего запроса без проверки адреса (SSRF). Проверьте URI через isAllowedAddress(...) до открытия соединения.",
+                "metadata": {
+                    "cwe": [
+                        "CWE-918: Server-Side Request Forgery (SSRF)"
+                    ],
+                    "category": "security"
+                },
+                "severity": "ERROR",
+                "fingerprint": "requires login",
+                "lines": "requires login",
+                "validation_state": "NO_VALIDATOR",
+                "engine_kind": "OSS"
+            }
+        }
+    ],
+    "errors": [],
+    "paths": {
+        "scanned": [
+            "/work/src/main/java/nsu/security/demoapplication/DemoapplicationApplication.java",
+            "/work/src/main/java/nsu/security/demoapplication/controller/FileController.java",
+            "/work/src/main/java/nsu/security/demoapplication/controller/HealthController.java",
+            "/work/src/main/java/nsu/security/demoapplication/controller/OrderController.java",
+            "/work/src/main/java/nsu/security/demoapplication/model/Order.java",
+            "/work/src/main/java/nsu/security/demoapplication/repository/OrderJdbcRepository.java",
+            "/work/src/main/java/nsu/security/demoapplication/repository/OrderRepository.java"
+        ]
+    },
+    "time": {
+        "rules": [],
+        "rules_parse_time": 0.06133103370666504,
+        "profiling_times": {
+            "config_time": 0.752058744430542,
+            "core_time": 0.9283053874969482,
+            "ignores_time": 7.891654968261719e-05,
+            "total_time": 1.7010796070098877
+        },
+        "parsing_time": {
+            "total_time": 0.029649019241333008,
+            "per_file_time": {
+                "mean": 0.029649019241333008,
+                "std_dev": 0.0
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_files": []
+        },
+        "scanning_time": {
+            "total_time": 0.10958290100097656,
+            "per_file_time": {
+                "mean": 0.015654700142996653,
+                "std_dev": 0.00033710335220831086
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_files": []
+        },
+        "matching_time": {
+            "total_time": 0.020172834396362305,
+            "per_file_and_rule_time": {
+                "mean": 0.020172834396362305,
+                "std_dev": 0.0
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_rules_on_files": []
+        },
+        "tainting_time": {
+            "total_time": 0.0010409355163574219,
+            "per_def_and_rule_time": {
+                "mean": 0.00017348925272623697,
+                "std_dev": 1.9842685914126275e-08
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_rules_on_defs": []
+        },
+        "fixpoint_timeouts": [],
+        "prefiltering": {
+            "project_level_time": 0.0,
+            "file_level_time": 0.0,
+            "rules_with_project_prefilters_ratio": 0.0,
+            "rules_with_file_prefilters_ratio": 1.0,
+            "rules_selected_ratio": 0.14285714285714285,
+            "rules_matched_ratio": 0.14285714285714285
+        },
+        "targets": [],
+        "total_bytes": 0,
+        "max_memory_bytes": 114785600
+    },
+    "engine_requested": "OSS",
+    "skipped_rules": [],
+    "profiling_results": []
+}
